@@ -166,11 +166,11 @@ venv.bak/
 # End of https://www.gitignore.io/api/python,eclipse
 
 # Robot Framework
-report.html
-log.html
-output.xml
-*.png
-*/results/*
+./report.html
+./log.html
+./output.xml
+#*.png
+#*/results/*
 #Not sure about this libspec one...should we commit them?
 *.libspec
 EagleDreamRobot/tests/library/python/
