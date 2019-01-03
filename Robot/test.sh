@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python -m robot -d results test
+python3 -m robot -d results test
