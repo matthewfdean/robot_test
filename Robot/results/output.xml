@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1 (Python 3.6.2 on linux)" generated="20190103 19:11:57.923" rpa="false">
+<suite id="s1" name="Test" source="/home/ec2-user/robot_test/Robot/test">
+<suite id="s1-s1" name="Test" source="/home/ec2-user/robot_test/Robot/test/test.robot">
+<test id="s1-s1-t1" name="Google Devops And Find Stackoverflow">
+<kw name="Open Browser To Bing">
+<kw name="Get Chrome Options" library="CustomSelenium">
+<arguments>
+<arg>True</arg>
+</arguments>
+<assign>
+<var>${chrome_options}</var>
+</assign>
+<msg timestamp="20190103 19:11:58.071" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fcf15f1d128&gt;</msg>
+<status status="PASS" starttime="20190103 19:11:58.070" endtime="20190103 19:11:58.071"></status>
+</kw>
+<kw name="Create Webdriver" library="Selenium2Library">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+<arg>options=${chrome_options}</arg>
+</arguments>
+<msg timestamp="20190103 19:11:58.071" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20190103 19:11:58.071" endtime="20190103 19:12:00.245"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>url=https://www.bing.com</arg>
+</arguments>
+<msg timestamp="20190103 19:12:00.246" level="INFO">Opening url 'https://www.bing.com'</msg>
+<status status="PASS" starttime="20190103 19:12:00.246" endtime="20190103 19:12:00.714"></status>
+</kw>
+<kw name="Set Window Size" library="Selenium2Library">
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<arguments>
+<arg>1920</arg>
+<arg>1080</arg>
+</arguments>
+<status status="PASS" starttime="20190103 19:12:00.715" endtime="20190103 19:12:00.817"></status>
+</kw>
+<kw name="Bing Should Be Open">
+<kw name="Location Should Contain" library="Selenium2Library">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>www.bing.com</arg>
+</arguments>
+<msg timestamp="20190103 19:12:00.828" level="INFO">Current location contains 'www.bing.com'.</msg>
+<status status="PASS" starttime="20190103 19:12:00.818" endtime="20190103 19:12:00.828"></status>
+</kw>
+<status status="PASS" starttime="20190103 19:12:00.818" endtime="20190103 19:12:00.828"></status>
+</kw>
+<status status="PASS" starttime="20190103 19:11:58.070" endtime="20190103 19:12:00.829"></status>
+</kw>
+<kw name="Search For Stackoverflow">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=sb_form_q</arg>
+<arg>stackoverflow</arg>
+</arguments>
+<msg timestamp="20190103 19:12:00.829" level="INFO">Typing text 'stackoverflow' into text field 'id=sb_form_q'.</msg>
+<status status="PASS" starttime="20190103 19:12:00.829" endtime="20190103 19:12:01.042"></status>
+</kw>
+<kw name="Press Key" library="Selenium2Library">
+<doc>Deprecated use `Press Keys` instead.</doc>
+<arguments>
+<arg>id=sb_form_q</arg>
+<arg>\\13</arg>
+</arguments>
+<status status="PASS" starttime="20190103 19:12:01.042" endtime="20190103 19:12:01.266"></status>
+</kw>
+<status status="PASS" starttime="20190103 19:12:00.829" endtime="20190103 19:12:01.267"></status>
+</kw>
+<kw name="Result Should Contain Stackoverflow">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>stackoverflow.com</arg>
+<arg>10 s</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20190103 19:12:11.760" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20190103 19:12:11.347" endtime="20190103 19:12:11.761"></status>
+</kw>
+<msg timestamp="20190103 19:12:11.762" level="FAIL">Text 'stackoverflow.com' did not appear in 10 seconds.</msg>
+<status status="FAIL" starttime="20190103 19:12:01.267" endtime="20190103 19:12:11.762"></status>
+</kw>
+<status status="FAIL" starttime="20190103 19:12:01.267" endtime="20190103 19:12:11.762"></status>
+</kw>
+<kw name="Close All Browsers" library="Selenium2Library" type="teardown">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20190103 19:12:11.762" endtime="20190103 19:12:11.818"></status>
+</kw>
+<status status="FAIL" starttime="20190103 19:11:58.068" endtime="20190103 19:12:11.818" critical="yes">Text 'stackoverflow.com' did not appear in 10 seconds.</status>
+</test>
+<status status="FAIL" starttime="20190103 19:11:57.950" endtime="20190103 19:12:11.820"></status>
+</suite>
+<status status="FAIL" starttime="20190103 19:11:57.924" endtime="20190103 19:12:11.822"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Test">Test</stat>
+<stat pass="0" fail="1" id="s1-s1" name="Test">Test.Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
